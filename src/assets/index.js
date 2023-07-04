@@ -1,0 +1,1 @@
+// export { default as 사용 이름 } from './경로';
