@@ -124,6 +124,7 @@ function Bulletin() {
                 </AddBtn>
             </TopBox>
             <ContainerBox>
+            
                 <Container href="">
                     <Img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCZlf5lc5tX-0gY-y94pGS0mQdL-D0lCH2OQ&usqp=CAU"/>
                     <TextSection>
@@ -154,6 +155,7 @@ function Bulletin() {
                         <span>2023-07-05</span>
                     </Information>
                 </Container>
+
                 <Container href="">
                     <Img src=""/>
                     <TextSection>

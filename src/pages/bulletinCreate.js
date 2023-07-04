@@ -62,7 +62,7 @@ function BulletinCreate() {
     <>
       <Header />
       <Wrapper>
-        <CreateTitle>안전 사고 꿀팁 생성</CreateTitle>
+        <CreateTitle>사고 게시글 작성</CreateTitle>
         <form>
           <TextField
             width={100}
@@ -94,7 +94,7 @@ function BulletinCreate() {
               name="groupBackgroundImageUrl"
             />
           </_SelectImageWrapper>
-          <EndButton onClick={onClick}>생성하기</EndButton>
+          <EndButton onClick={onClick}>게시글 작성하기</EndButton>
         </form>
       </Wrapper>
     </>
@@ -113,7 +113,7 @@ const Wrapper = styled.div`
 const CreateTitle = styled.h1`
   color: #000;
   margin-top: 80px;
-  margin-left: -900px;
+  margin-left: -932px;
   font-size: 32px;
   font-family: Inter;
   font-style: normal;

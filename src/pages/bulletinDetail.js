@@ -3,17 +3,14 @@ import styled from "styled-components";
 import Header from "../components/common/Header";
 
 function BulletinDetail() {
-    return <>
+    return <Body>
             <Header />
             <Section>
             <Wrapper>
                 <Title>자전거를 어떻게 하면 안전하게 탈 수 있을까요?</Title>
                 <Info>
-                    <h1>2023-01-01</h1>
-                    <div style={{display:"inline-flex", flexDirection:"row", alignItems:"center", gap:"3px"}}>
-                        <img src="/images/heart.svg" alt="Likes"></img>
-                        <h1>123</h1>
-                    </div>
+                    <ViewYMD>2023-01-01</ViewYMD>
+                    <View>조회수 : 123</View>
                 </Info>
                 <Data>
                     <img src="/images/bicycle.png"/>
@@ -36,10 +33,33 @@ function BulletinDetail() {
                 </div>
             </Wrapper>
             </Section>
-        </>
+        </Body>
 }
 
 export default BulletinDetail;
+
+const ViewYMD = styled.span`
+color: black;
+font-size: 16px;
+font-family: Inter;
+font-style: normal;
+font-weight: 400;
+line-height: 32px;
+`;
+
+const View = styled.span`
+color: #B4B0B0;
+font-size: 16px;
+font-family: Inter;
+font-style: normal;
+font-weight: 400;
+line-height: 32px;
+`;
+
+const Body = styled.div`
+overflow-x:hidden;
+margin-bottom:60px;
+`;
 
 const Section = styled.section`
     width: 100vw;
