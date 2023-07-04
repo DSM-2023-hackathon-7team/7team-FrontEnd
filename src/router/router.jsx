@@ -6,7 +6,7 @@ export const Router = () => {
     <BrowserRouter>
       <Routes>
         {/* <Route path="/" element={<>Test</>} /> 이런 형식으로 페이지 추가*/}
-        <Route path="/" element={<Header />} />
+        <Route path="/" element={<>Test</>} />
       </Routes>
     </BrowserRouter>
   );
