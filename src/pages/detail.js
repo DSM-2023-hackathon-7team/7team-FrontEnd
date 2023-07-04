@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Header from "../components/common/Header";
 
 function Detail() {
-    return <>
+    return <Body>
             <Header />
             <Section>
             <Wrapper>
@@ -36,10 +36,15 @@ function Detail() {
                 </div>
             </Wrapper>
             </Section>
-        </>
+        </Body>
 }
 
 export default Detail;
+
+const Body = styled.div`
+    overflow-x:hidden;
+    margin-bottom:60px;
+`;
 
 const Section = styled.section`
     width: 100vw;
