@@ -2,24 +2,30 @@ import React from "react";
 import Header from "../components/common/Header";
 import { styled } from "styled-components";
 import transitions from "../lib/styles/transition";
+import { useModal } from "../hooks/useModal";
+import CheckAnswerModal from "../components/common/modal/CheckAnswerModal";
 
 const Quizgame = () => {
+  const { modal, openModal } = useModal("Answer");
   return (
-    <Body>
-      <Header />
-      <Container>
-        <QuizNum>문제 1 / 5</QuizNum>
-        <QuizText>자전거를 탈 때에는 물구나무서기 자세로 탄다.</QuizText>
-        <AnswerBox>
-          <Answer type={true}>
-            <Img src="/images/Ellipse.svg" />
-          </Answer>
-          <Answer type={false}>
-            <Img src="/images/Vector.svg" />
-          </Answer>
-        </AnswerBox>
-      </Container>
-    </Body>
+    <>
+      {modal.isOpen && <CheckAnswerModal />}
+      <Body>
+        <Header />
+        <Container>
+          <QuizNum>문제 1 / 5</QuizNum>
+          <QuizText>자전거를 탈 때에는 물구나무서기 자세로 탄다.</QuizText>
+          <AnswerBox>
+            <Answer type={true} onClick={openModal}>
+              <Img src="/images/Ellipse.svg" />
+            </Answer>
+            <Answer type={false} onClick={openModal}>
+              <Img src="/images/Vector.svg" />
+            </Answer>
+          </AnswerBox>
+        </Container>
+      </Body>
+    </>
   );
 };
 
