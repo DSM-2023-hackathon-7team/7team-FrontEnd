@@ -21,6 +21,7 @@ const ContainerBox = styled.div`
 display:flex;
 flex-direction:column;
 margin-left:160px;
+margin-bottom:60px;
 `;
 
 const Container = styled.a`
