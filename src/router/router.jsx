@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Create from "../pages/create";
 import Quiz from "../pages/quiz";
 import Rank from "../pages/rank";
+import Quizgame from "../pages/quizgame";
 
 export const Router = () => {
   return (
@@ -13,6 +14,7 @@ export const Router = () => {
         <Route path="/detail" element={<>Test</>} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/rank" element={<Rank />} />
+        <Route path="/quizgame" element={<Quizgame />} />
       </Routes>
     </BrowserRouter>
   );
