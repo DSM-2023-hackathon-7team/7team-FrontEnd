@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Create from "../pages/create";
 import Quiz from "../pages/quiz";
+import Rank from "../pages/rank";
 
 export const Router = () => {
   return (
@@ -11,6 +12,7 @@ export const Router = () => {
         <Route path="/create" element={<Create />} />
         <Route path="/detail" element={<>Test</>} />
         <Route path="/quiz" element={<Quiz />} />
+        <Route path="/rank" element={<Rank />} />
       </Routes>
     </BrowserRouter>
   );
