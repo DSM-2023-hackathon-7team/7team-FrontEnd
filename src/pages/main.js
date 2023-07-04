@@ -13,7 +13,7 @@ function Main() {
             <Container2>
                 <Text2>
                     <Green>안전 뉴스 기사</Green>들도 확인해보세요
-                    <br/><Btn>확인하기</Btn>
+                    <br/><a href=""><Btn>확인하기</Btn></a>
                 </Text2>
                 <img src="/images/magazine.svg"/>
             </Container2>
