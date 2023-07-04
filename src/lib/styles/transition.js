@@ -23,13 +23,13 @@ const sizeup = keyframes`
     transform: scale(1);
   }
   100% {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 `;
 
 const sizedown = keyframes`
   0% {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
   100% {
     transform: scale(1);
