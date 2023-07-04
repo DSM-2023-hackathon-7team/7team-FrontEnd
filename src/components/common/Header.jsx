@@ -3,11 +3,14 @@ import { useState, useEffect } from "react";
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
 import { Profile } from "../../assets";
+import { useModal } from "../../hooks/useModal";
+import LoginModal from "./modal/LoginModal";
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [searchValue, setSearchValue] = useState("");
   const [name, setName] = useState("");
+  const { modal, openModal } = useModal("Auth");
 
   const onChange = (e) => {
     setSearchValue(e.target.value);
@@ -24,24 +27,27 @@ const Header = () => {
   }, []);
 
   return (
-    <_Wrapper>
-      <span>Logo</span>
-      <_RightWrapper>
-        <SearchBar onChange={onChange} value={searchValue} />
-        <_HeaderNav>안전 퀴즈</_HeaderNav>
-        <_HeaderNav>안전 사고</_HeaderNav>
-        <_HeaderNav>안전 뉴스</_HeaderNav>
-        <_HeaderNav>사고 게시판</_HeaderNav>
-        {isLogin ? (
-          <_ProfileWrapper>
-            <_Image src={Profile} alt="profile" />
-            <_Name>Test</_Name>
-          </_ProfileWrapper>
-        ) : (
-          <_LoginButton>로그인</_LoginButton>
-        )}
-      </_RightWrapper>
-    </_Wrapper>
+    <>
+      {modal.isOpen && <LoginModal />}
+      <_Wrapper>
+        <span>Logo</span>
+        <_RightWrapper>
+          <SearchBar onChange={onChange} value={searchValue} />
+          <_HeaderNav>안전 퀴즈</_HeaderNav>
+          <_HeaderNav>안전 사고</_HeaderNav>
+          <_HeaderNav>안전 뉴스</_HeaderNav>
+          <_HeaderNav>사고 게시판</_HeaderNav>
+          {isLogin ? (
+            <_ProfileWrapper>
+              <_Image src={Profile} alt="profile" />
+              <_Name>Test</_Name>
+            </_ProfileWrapper>
+          ) : (
+            <_LoginButton onClick={openModal}>로그인</_LoginButton>
+          )}
+        </_RightWrapper>
+      </_Wrapper>
+    </>
   );
 };
 
@@ -71,6 +77,7 @@ const _HeaderNav = styled(Link)`
   text-decoration: none;
   margin-right: 30px;
   display: flex;
+  cursor: pointer;
   align-items: center;
 `;
 
@@ -82,6 +89,7 @@ const _LoginButton = styled.button`
   font-size: 20px;
   font-weight: 700;
   line-height: 39px;
+  cursor: pointer;
 `;
 
 const _Image = styled.img`
