@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components";
 import transitions from "../../../lib/styles/transition";
 
-const ModalItem = ({ children, modal, ...rest }) => {
+const ModalItem = ({ children, modal, width, ...rest }) => {
   return (
-    <_Wrapper {...rest} modal={modal}>
+    <_Wrapper {...rest} modal={modal} width={width}>
       {children}
     </_Wrapper>
   );
@@ -12,9 +12,9 @@ const ModalItem = ({ children, modal, ...rest }) => {
 export default ModalItem;
 
 const _Wrapper = styled.div`
-  width: 650px;
+  width: ${({ width }) => (width ? `${width}px` : "650px")};
   height: 700px;
-  background-color: #FFFBFB;
+  background-color: #fffbfb;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
