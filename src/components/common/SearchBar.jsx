@@ -10,7 +10,7 @@ const SearchBar = ({ onChange, value }) => {
         onChange={onChange}
         value={value}
       />
-      <img src={Clue} alt="clue" />
+      <_Image src={Clue} alt="clue" />
     </_Wrapper>
   );
 };
@@ -28,6 +28,10 @@ const _Wrapper = styled.div`
   align-items: center;
   margin-right: 40px;
 `;
+
+const _Image = styled.img`
+  cursor: pointer;
+`
 
 const _Input = styled.input`
   width: 80%;
