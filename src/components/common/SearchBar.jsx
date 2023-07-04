@@ -4,7 +4,12 @@ import { Clue } from "../../assets";
 const SearchBar = ({ onChange, value }) => {
   return (
     <_Wrapper>
-      <_Input type="text" placeholder="안전 정보를 입력해주세요." onChange={onChange} value={value} />
+      <_Input
+        type="text"
+        placeholder="안전 정보를 입력해주세요."
+        onChange={onChange}
+        value={value}
+      />
       <img src={Clue} alt="clue" />
     </_Wrapper>
   );
@@ -22,7 +27,6 @@ const _Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-right: 40px;
-  
 `;
 
 const _Input = styled.input`

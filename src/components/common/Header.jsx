@@ -18,7 +18,7 @@ const Header = () => {
 
     setIsLogin(accessToken ? true : false);
 
-    if(isLogin) {
+    if (isLogin) {
       // 이름 요청
     }
   }, []);
@@ -57,8 +57,9 @@ const _Wrapper = styled.header`
 `;
 
 const _RightWrapper = styled.div`
-  width: 60%;
+  width: 90%;
   display: flex;
+  justify-content: flex-end;
 `;
 
 const _HeaderNav = styled(Link)`
