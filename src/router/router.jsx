@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Create from "../pages/create";
+import Quiz from "../pages/quiz";
 
 export const Router = () => {
   return (
@@ -9,6 +10,7 @@ export const Router = () => {
         <Route path="/" element={<>Test</>} />
         <Route path="/create" element={<Create />} />
         <Route path="/detail" element={<>Test</>} />
+        <Route path="/quiz" element={<Quiz />} />
       </Routes>
     </BrowserRouter>
   );
