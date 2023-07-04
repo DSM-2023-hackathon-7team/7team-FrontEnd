@@ -1,15 +1,21 @@
 import { Router } from "./router/router";
 import StyleProvider from "./styles";
 import { Suspense } from "react";
+import { RecoilRoot } from "recoil";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function App() {
+const App = () => {
   return (
     <StyleProvider>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Router />
-      </Suspense>
+      <RecoilRoot>
+        <Suspense fallback={<div>Loading...</div>}>
+          <ToastContainer />
+          <Router />
+        </Suspense>
+      </RecoilRoot>
     </StyleProvider>
   );
-}
+};
 
 export default App;
