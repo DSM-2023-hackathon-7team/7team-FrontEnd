@@ -1,4 +1,4 @@
-const XShape = (color) => {
+export const XShape = (color) => {
   return (
     <svg
       width="150"
@@ -14,5 +14,3 @@ const XShape = (color) => {
     </svg>
   );
 };
-
-export default XShape;
