@@ -73,6 +73,9 @@ const Text2 = styled.div`
 const ContainerBox = styled.div`
   margin-top: 47px;
   display: flex;
+  :last-child {
+    margin-right:0;
+  }
 `;
 
 const Container = styled.div`

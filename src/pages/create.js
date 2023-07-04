@@ -3,8 +3,6 @@ import styled from "styled-components";
 import Header from "../components/common/Header";
 import { FindImage } from "../assets";
 import TextField from "../components/common/TextField";
-import { useModal } from "../hooks/useModal";
-import QuestionModal from "../components/common/modal/QuestionModal";
 
 function Create() {
   const [information, setInformation] = useState({
@@ -13,7 +11,6 @@ function Create() {
     imageUrl: "",
   });
   const [imageState, setImageState] = useState("");
-  const { modal, openModal } = useModal("Question");
   const ref = useRef(null);
 
   const onChange = (e) => {
@@ -57,20 +54,22 @@ function Create() {
       return <_Image src={imageValue} height={height} alt={image} />;
     }, [imageValue]);
 
+  const onClick = () => {
+    //게시물 생성 api
+  };
+
   return (
-    <>
-      {modal.isOpen && <QuestionModal />}
+    <Body>
       <Header />
       <Wrapper>
         <CreateTitle>안전 사고 꿀팁 생성</CreateTitle>
-        <div>
+        <form>
           <TextField
             width={100}
             name="title"
             placeholder="제목을 입력하세요."
             value={information.title}
             onChange={onChange}
-            text="제목"
           />
           <TextInput
             name="contents"
@@ -95,30 +94,35 @@ function Create() {
               name="groupBackgroundImageUrl"
             />
           </_SelectImageWrapper>
-          <EndButton onClick={openModal}>생성하기</EndButton>
-        </div>
+          <EndButton onClick={onClick}>생성하기</EndButton>
+        </form>
       </Wrapper>
-    </>
+    </Body>
   );
 }
 
 export default Create;
 
+const Body = styled.div`
+  overflow-x:hidden;
+`;
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0 370px;
+  justify-content: center;
+  align-items: center;
 `;
 
 const CreateTitle = styled.h1`
   color: #000;
   margin-top: 80px;
+  margin-left: -900px;
   font-size: 32px;
   font-family: Inter;
   font-style: normal;
   font-weight: 700;
   line-height: 32px;
-  margin-bottom: 76px;
 `;
 
 const EndButton = styled.button`
@@ -140,8 +144,8 @@ const EndButton = styled.button`
 
 const TextInput = styled.textarea`
   display: flex;
-  margin-top: 85px;
-  width: 100%;
+  margin-top: 35px;
+  width: 1180px;
   height: 400px;
   resize: none;
   padding: 21px 0 340px 27px;
@@ -167,7 +171,7 @@ const _FileSelector = styled.input`
   display: none;
 `;
 
-const _SelectImageWrapper = styled.div`
+const _SelectImageWrapper = styled.form`
   width: 340px;
   height: ${({ height = 200 }) => `${height}px`};
   display: flex;

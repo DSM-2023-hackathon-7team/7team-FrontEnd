@@ -59,7 +59,7 @@ function BulletinCreate() {
   };
 
   return (
-    <>
+    <Body>
       <Header />
       <Wrapper>
         <CreateTitle>사고 게시글 작성</CreateTitle>
@@ -97,11 +97,15 @@ function BulletinCreate() {
           <EndButton onClick={onClick}>게시글 작성하기</EndButton>
         </form>
       </Wrapper>
-    </>
+    </Body>
   );
 }
 
 export default BulletinCreate;
+
+const Body = styled.div`
+overflow-x:hidden
+`;
 
 const Wrapper = styled.div`
   display: flex;
