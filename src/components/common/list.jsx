@@ -29,6 +29,9 @@ const _Wrapper = styled.div`
   padding: 15px 60px;
   display: flex;
   align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const _Image = styled.img`

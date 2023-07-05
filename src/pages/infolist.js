@@ -6,28 +6,22 @@ import { getAccident } from "../apis/getAccident";
 import { customToast } from "../utils/toast/toast";
 
 const InfoList = () => {
-  const [pageNumber, setPageNumber] = useState(1);
   const [checked, setChecked] = useState("인기도");
-  const [AcciItems, setAcciItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [acciItems, setAcciItems] = useState([]);
 
   const onClick = (initial) => {
     setChecked(initial);
   };
 
   const loadTips = () => {
-    getAccident("", "LATEST")
+    getAccident("", "LIKES")
       .then((res) => {
-        const AccidentItems = res.data;
-        console.log(AccidentItems);
-        setAcciItems((prevAcciItems) => [...prevAcciItems, ...AccidentItems]);
-        setPageNumber((prevPageNumber) => prevPageNumber + 1);
-        setIsLoading(false);
+        console.log(res.data.accident_information_list)
+        setAcciItems(res.data.accident_information_list);
       })
       .catch((err) => {
         console.error(err);
         customToast("개발자 에러", "error");
-        setIsLoading(false);
       });
   };
 
@@ -59,14 +53,13 @@ const InfoList = () => {
             <WriteButton>생성하기</WriteButton>
           </Buttons>
         </Top>
-        {AcciItems?.map((element) => {
+        {acciItems?.map((element) => {
           return (
             <Tips>
-              <TipsList title="test" data="test" hearts="10" />
+              <TipsList title={element.title} data={element.content} hearts={element.like_count} />
             </Tips>
           );
         })}
-        {isLoading && <span>Loading...</span>}
       </Wrapper>
     </div>
   );
