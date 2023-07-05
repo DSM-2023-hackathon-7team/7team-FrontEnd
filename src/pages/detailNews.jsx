@@ -30,24 +30,24 @@ const DetailNews = () => {
 
   return (
     <Body>
-      <_Item>
-        <Header />
-        <_Wrapper>
-          <_Title>{information.title}</_Title>
-          <_Date>{convertDateFormat(information.date)}</_Date>
-          <_Image src={information.image_url} alt={information.title} />
-          <_ContentsWrapper>
-            {information.describe.split("\n").map((line, idx) => {
-              return (
-                <span key={idx}>
-                  {line}
-                  <br />
-                </span>
-              );
-            })}
-          </_ContentsWrapper>
-        </_Wrapper>
-      </_Item>
+    <_Item>
+      <Header />
+      <_Wrapper>
+        <_Title>{information.title}</_Title>
+        <_Date>{convertDateFormat(information.date)}</_Date>
+        <_Image src={information.image_url} alt={information.title} />
+        <_ContentsWrapper>
+          {information.describe.split("\n").map((line, idx) => {
+            return (
+              <span key={idx} style={{lineHeight:"40px"}}>
+                {line}
+                <br />
+              </span>
+            );
+          })}
+        </_ContentsWrapper>
+      </_Wrapper>
+    </_Item>
     </Body>
   );
 };
