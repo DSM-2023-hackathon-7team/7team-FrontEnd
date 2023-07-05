@@ -10,6 +10,7 @@ import News from "../pages/news";
 import BulletinCreate from "../pages/bulletinCreate";
 import BulletinDetail from "../pages/bulletinDetail";
 import InfoList from "../pages/infolist";
+import DetailNews from "../pages/detailNews";
 
 export const Router = () => {
   return (
@@ -24,6 +25,7 @@ export const Router = () => {
         <Route path="/quizgame" element={<Quizgame />} />
         <Route path="/bulletin" element={<Bulletin />} />
         <Route path="/news" element={<News />} />
+        <Route path="/news/:id" element={<DetailNews />} />
         <Route path="/bulletinCreate" element={<BulletinCreate />} />
         <Route path="/BulletinDetail" element={<BulletinDetail />} />
         <Route path="/infolist" element={<InfoList />} />
