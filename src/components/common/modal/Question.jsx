@@ -1,17 +1,19 @@
 import { styled } from "styled-components";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { gptDummyData } from "../../../utils/constants/gptData";
 import { customToast } from "../../../utils/toast/toast";
 import TextField from "../TextField";
 import { AnswerData } from "../../../utils/constants/answer";
+import { createQuiz } from "../../../apis/createQuiz";
+import { useModal } from "../../../hooks/useModal";
 
 const Question = () => {
-  const [gptData, setGptData] = useState(null);
   const [number, setNumber] = useState(1);
   const [question, setQuestion] = useState({
     ask: "",
     answer: "O",
   });
+  const { closeModal } = useModal("Question");
 
   const onChange = (e) => {
     setQuestion({ ...question, [e.target.name]: e.target.value });
@@ -46,12 +48,20 @@ const Question = () => {
     }
 
     // api연결
+    createQuiz({
+      question: question.ask,
+      result: question.answer === "O" ? true : false,
+    })
+      .then((res) => {
+        console.log(res);
+        closeModal();
+        window.location.href = "/infolist";
+      })
+      .catch((err) => {
+        console.error(err);
+        customToast("개발자 에러", "error");
+      });
   };
-
-  useEffect(() => {
-    // 처음 값 저장할때 사용하는 변수
-    setGptData(gptDummyData);
-  }, []);
 
   return (
     <_Wrapper>
@@ -197,7 +207,7 @@ const _OptionWrapper = styled.div`
   margin-top: 70px;
   width: 900px;
   display: flex;
-  align-items:center;
+  align-items: center;
 `;
 
 const _FlexEnd = styled.div`

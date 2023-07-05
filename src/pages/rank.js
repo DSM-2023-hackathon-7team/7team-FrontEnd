@@ -1,14 +1,37 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import Header from "../components/common/Header";
+import { getRank } from "../apis/getRank";
+import { customToast } from "../utils/toast/toast";
 
 const Rank = () => {
+  const [state, setState] = useState({
+    my_name: "",
+    rank: 0,
+    point: 0,
+  });
+  
+  useEffect(() => {
+    getRank()
+      .then(({ data }) => {
+        setState(data);
+      })
+      .catch((err) => {
+        console.error(err);
+        customToast("개발자 에러", "error");
+      });
+  }, []);
+
   return (
     <Body>
       <Header />
       <Img src="/images/trophy.svg"></Img>
-      <Text1>...님의 순위는 17등입니다!</Text1>
-      <Text2>...님의 현재 점수는 280점입니다!</Text2>
+      <Text1>
+        {state.my_name}님의 순위는 {state.rank}등입니다!
+      </Text1>
+      <Text2>
+        {state.my_name}님의 현재 점수는 {state.point}점입니다!
+      </Text2>
       <ContainerBox>
         <Container>
           <MedalImg src="/images/1medal.svg" />
@@ -36,7 +59,7 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-x:hidden;
+  overflow-x: hidden;
 `;
 
 const Img = styled.img`
@@ -75,7 +98,7 @@ const ContainerBox = styled.div`
   margin-top: 47px;
   display: flex;
   :last-child {
-    margin-right:0;
+    margin-right: 0;
   }
 `;
 

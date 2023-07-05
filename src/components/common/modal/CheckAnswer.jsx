@@ -1,29 +1,34 @@
 import { styled } from "styled-components";
 import { useState, useEffect } from "react";
 import { useModal } from "../../../hooks/useModal";
+import { checkAnswer } from "../../../apis/checkAnswer";
+import { customToast } from "../../../utils/toast/toast";
 
-const CheckAnswer = () => {
+const CheckAnswer = ({ quizId, result }) => {
   const { closeModal } = useModal("Answer");
   const [answer, setAnswer] = useState(false);
-  const [last, setLast] = useState(true); // 임의 변수(나중에는 리스트 길이로 할 예정)
 
   const onClick = () => {
     closeModal();
-    console.log("클릭");
+    window.location.href='/quiz'
   };
 
   useEffect(() => {
     // 정답 체크
+    checkAnswer(quizId, result)
+      .then((res) => {
+        console.log(res);
+        setAnswer(res.data.result);
+      })
+      .catch((err) => {
+        console.error(err);
+        customToast("개발자 에러", "error");
+      });
   }, []);
 
   return (
     <_Wrapper>
-      {last ? (
-        <>
-          <_Text>총 5문제 중 3문제 맞추셨습니다.</_Text>
-          <_Text>정답률 : 60%</_Text>
-        </>
-      ) : answer ? (
+      {answer ? (
         <>
           <_Title>
             <_Stroke answer={answer}>정답</_Stroke>입니다.

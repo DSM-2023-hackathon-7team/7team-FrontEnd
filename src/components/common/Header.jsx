@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
-import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
 import { Profile } from "../../assets";
 import { useModal } from "../../hooks/useModal";
 import LoginModal from "./modal/LoginModal";
+import { getRank } from "../../apis/getRank";
+import { customToast } from "../../utils/toast/toast";
 
 const Header = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [name, setName] = useState("");
   const { modal, openModal } = useModal("Auth");
@@ -21,10 +22,17 @@ const Header = () => {
 
     setIsLogin(accessToken ? true : false);
 
-    if (isLogin) {
+    if (accessToken) {
       // 이름 요청
-
-      setName("개발자");
+      getRank()
+        .then(({ data }) => {
+          setName(data.my_name);
+        })
+        .catch((err) => {
+          console.error(err);
+          setName("버그");
+          customToast("버그", "error");
+        });
     }
   }, []);
 
@@ -36,7 +44,6 @@ const Header = () => {
           <img src="/images/logo2.png" style={{ width: "70px" }} />
         </Link>
         <_RightWrapper>
-          <SearchBar onChange={onChange} value={searchValue} />
           <_HeaderNav to="/quiz">안전 퀴즈</_HeaderNav>
           <_HeaderNav to="/infolist">안전 꿀팁</_HeaderNav>
           <_HeaderNav to="/news">안전 뉴스</_HeaderNav>

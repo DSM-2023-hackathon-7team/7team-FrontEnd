@@ -4,7 +4,7 @@ import ModalBackground from "./Background";
 import ModalItem from "./ModalItem";
 import CheckAnswer from "./CheckAnswer";
 
-const CheckAnswerModal = () => {
+const CheckAnswerModal = ({ quizId, result }) => {
   const { modal, closeModal } = useModal("Answer");
   const [visible, setVisible] = useState(modal.isOpen);
 
@@ -22,7 +22,7 @@ const CheckAnswerModal = () => {
   return (
     <ModalBackground modalName="Answer" onClick={backgroundOnClick}>
       <ModalItem modal={visible} onClick={onClick} width={500} height={500}>
-        <CheckAnswer />
+        <CheckAnswer quizId={quizId} result={result} />
       </ModalItem>
     </ModalBackground>
   );

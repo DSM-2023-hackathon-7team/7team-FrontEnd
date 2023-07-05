@@ -4,12 +4,15 @@ import Header from "../components/common/Header";
 import { Link } from "react-router-dom";
 
 const Quiz = () => {
+  const onClick = () => {
+    window.location.href = "/quizgame";
+  };
   return (
     <Body>
       <Header />
       <Img src="/images/logo2.png"></Img>
       <MainText>안전 퀴즈를 풀어보아요!</MainText>
-      <QuizBtn>퀴즈 도전하기</QuizBtn>
+      <QuizBtn onClick={onClick}>퀴즈 도전하기</QuizBtn>
       <LinkDiv>
         <LinkSpanGray>순위가 궁금하세요?&nbsp;</LinkSpanGray>
         <LinkSpanBlack to="/rank">순위 확인</LinkSpanBlack>
@@ -24,7 +27,7 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-x:hidden;
+  overflow-x: hidden;
 `;
 
 const Img = styled.img`
@@ -73,7 +76,7 @@ const LinkSpanGray = styled.span`
   font-style: normal;
   font-weight: 400;
   line-height: 32px;
-  opacity:0.7;
+  opacity: 0.7;
 `;
 
 const LinkSpanBlack = styled(Link)`

@@ -1,25 +1,51 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/common/Header";
 import { styled } from "styled-components";
 import transitions from "../lib/styles/transition";
 import { useModal } from "../hooks/useModal";
 import CheckAnswerModal from "../components/common/modal/CheckAnswerModal";
+import { getQuiz } from "../apis/getQuiz";
+import { customToast } from "../utils/toast/toast";
 
 const Quizgame = () => {
   const { modal, openModal } = useModal("Answer");
+  const [state, setState] = useState("");
+  const [quizId, setQuizId] = useState(0);
+  const [result, setResult] = useState(true);
+
+  useEffect(() => {
+    getQuiz()
+      .then((res) => {
+        const { data } = res;
+        console.log(res);
+        setState(data.question);
+        setQuizId(data.quiz_id);
+      })
+      .catch((err) => {
+        console.error(err);
+        customToast("개발자 에러", "error");
+      });
+  }, []);
+
   return (
     <>
-      {modal.isOpen && <CheckAnswerModal />}
+      {modal.isOpen && <CheckAnswerModal result={result} quizId={quizId} />}
       <Body>
         <Header />
         <Container>
-          <QuizNum>문제 1 / 5</QuizNum>
-          <QuizText>자전거를 탈 때에는 물구나무서기 자세로 탄다.</QuizText>
+          <QuizNum>문제 1.</QuizNum>
+          <QuizText>{state}</QuizText>
           <AnswerBox>
             <Answer type={true} onClick={openModal}>
               <Img src="/images/Ellipse.svg" />
             </Answer>
-            <Answer type={false} onClick={openModal}>
+            <Answer
+              type={false}
+              onClick={() => {
+                setResult(false);
+                openModal();
+              }}
+            >
               <Img src="/images/Vector.svg" />
             </Answer>
           </AnswerBox>
@@ -35,7 +61,7 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-x:hidden;
+  overflow-x: hidden;
 `;
 
 const Container = styled.div`
