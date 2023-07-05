@@ -11,8 +11,8 @@ const Quiz = () => {
       <MainText>안전 퀴즈를 풀어보아요!</MainText>
       <QuizBtn>퀴즈 도전하기</QuizBtn>
       <LinkDiv>
-        <LinkSpanGray>순위가 궁금하세요?</LinkSpanGray>
-        <LinkSpanBlack to="/rank">&nbsp;순위 확인</LinkSpanBlack>
+        <LinkSpanGray>순위가 궁금하세요?&nbsp;</LinkSpanGray>
+        <LinkSpanBlack to="/rank">순위 확인</LinkSpanBlack>
       </LinkDiv>
     </Body>
   );
@@ -82,7 +82,7 @@ const LinkSpanBlack = styled(Link)`
   font-weight: 400;
   line-height: 32px;
   cursor: pointer;
-  :hover {
+  &:hover {
     text-decoration: underline;
   }
 `;
