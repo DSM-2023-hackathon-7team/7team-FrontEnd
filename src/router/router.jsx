@@ -26,6 +26,7 @@ export const Router = () => {
         <Route path="/news" element={<News />} />
         <Route path="/bulletinCreate" element={<BulletinCreate />} />
         <Route path="/BulletinDetail" element={<BulletinDetail />} />
+        <Route path="/infolist" element={<InfoList />} />
         <Route path="*" element={<>Change Your WebSite Path</>} />
       </Routes>
     </BrowserRouter>
