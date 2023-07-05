@@ -30,10 +30,10 @@ const Header = () => {
     <>
       {modal.isOpen && <LoginModal />}
       <_Wrapper>
-        <span>Logo</span>
+        <Link to="/">Logo</Link>
         <_RightWrapper>
           <SearchBar onChange={onChange} value={searchValue} />
-          <_HeaderNav>안전 퀴즈</_HeaderNav>
+          <_HeaderNav to="/quiz">안전 퀴즈</_HeaderNav>
           <_HeaderNav>안전 사고</_HeaderNav>
           <_HeaderNav>안전 뉴스</_HeaderNav>
           <_HeaderNav>사고 게시판</_HeaderNav>
