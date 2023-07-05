@@ -112,6 +112,9 @@ const Container = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.2);
   margin-top: 60px;
   display: flex;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Container2 = styled.a`
