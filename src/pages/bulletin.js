@@ -13,7 +13,7 @@ const Bulletin = () => {
         </AddBtn>
       </TopBox>
       <ContainerBox>
-        <Container href="">
+        <Container>
           <Img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCZlf5lc5tX-0gY-y94pGS0mQdL-D0lCH2OQ&usqp=CAU" />
           <TextSection>
             <Title>하하하하하하하하하하하하하하하하하하하</Title>
@@ -28,7 +28,7 @@ const Bulletin = () => {
             <span>2023-07-05</span>
           </Information>
         </Container>
-        <Container href="">
+        <Container>
           <Img src="" />
           <TextSection>
             <Title>제목제목제목제목제목</Title>
@@ -45,7 +45,7 @@ const Bulletin = () => {
           </Information>
         </Container>
 
-        <Container href="">
+        <Container>
           <Img src="" />
           <TextSection>
             <Title>제목제목제목제목제목</Title>
@@ -109,7 +109,7 @@ const AddBtnText = styled.div`
   line-height: 39px;
 `;
 
-const Container = styled.a`
+const Container = styled.div`
   width: 1600px;
   height: 400px;
   border: 1px solid rgba(0, 0, 0, 0.2);
