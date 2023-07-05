@@ -154,6 +154,7 @@ const ViewYMD = styled.span`
 const _Image = styled.img`
   width: 1000px;
   height: 500px;
+  margin-bottom: 30px;
 `;
 
 const View = styled.span`

@@ -70,8 +70,8 @@ const InfoList = () => {
         </Top>
         {acciItems?.map((element) => {
           return (
-            <Tips>
-              <TipsList key={element.accident_information_id} {...element} />
+            <Tips key={element.accident_information_id}>
+              <TipsList {...element} />
             </Tips>
           );
         })}

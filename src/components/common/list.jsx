@@ -1,10 +1,19 @@
 import styled from "styled-components";
-import { Profile } from "../../assets";
 import { Heart } from "../../assets/image/svgs/Heart";
 
-const TipsList = ({ hearts, title, content, image_url }) => {
+const TipsList = ({
+  hearts,
+  title,
+  content,
+  image_url,
+  accident_information_id,
+}) => {
+  const onClick = () => {
+    window.location.href = `/infolist/${accident_information_id}`;
+  };
+
   return (
-    <_Wrapper>
+    <_Wrapper onClick={onClick}>
       <_Image src={image_url} alt="post picture" />
       <_SmallWrapper>
         <_Title>{title}</_Title>
