@@ -27,6 +27,10 @@ const _Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-right: 40px;
+  &:hover {
+    border: 1px solid gray;
+    padding: 4px 19px;
+  }
 `;
 
 const _Image = styled.img`
