@@ -38,7 +38,7 @@ const InfoList = () => {
       <Header />
       <Wrapper>
         <Top>
-          <Title>안전 사고 꿀팁</Title>
+          <Title>안전 꿀팁</Title>
           <Buttons>
             <SQC
               checked={checked}
