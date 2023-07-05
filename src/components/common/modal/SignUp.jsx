@@ -3,6 +3,7 @@ import TextField from "../TextField";
 import { useState } from "react";
 import { useModal } from "../../../hooks/useModal";
 import { customToast } from "../../../utils/toast/toast";
+import { SignUpApi } from "../../../apis/SignUp";
 
 const SignUp = () => {
   const [information, setInformation] = useState({
@@ -32,6 +33,16 @@ const SignUp = () => {
       return;
     }
     // 회원가입 api
+    SignUpApi(information)
+      .then((res) => {
+        console.log(res);
+        closeModal();
+        customToast("회원가입 성공!", "success");
+      })
+      .catch((err) => {
+        console.error(err);
+        customToast("개발자 문제", "error");
+      });
   };
 
   return (

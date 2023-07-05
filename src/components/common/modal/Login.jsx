@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 import TextField from "../TextField";
+import { SignIn } from "../../../apis/SignIn";
+import { customToast } from "../../../utils/toast/toast";
 
 const Login = ({ setIsSignUp }) => {
   const [information, setInformation] = useState({
@@ -19,6 +21,14 @@ const Login = ({ setIsSignUp }) => {
 
   const onClick = () => {
     // api 요청
+    SignIn(information)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.error(err);
+        customToast("개발자 문제", "error");
+      });
   };
 
   return (
