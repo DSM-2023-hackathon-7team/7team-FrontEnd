@@ -14,9 +14,20 @@ const InfoList = () => {
   };
 
   const loadTips = () => {
-    getAccident("", "LIKES")
+    let temp = "";
+    switch (checked) {
+      case "인기도":
+        temp = "LATEST";
+        break;
+      case "올린 날짜":
+        temp = "LIKES";
+        break;
+      default:
+        break;
+    }
+    getAccident("", temp)
       .then((res) => {
-        console.log(res.data.accident_information_list)
+        console.log(res.data.accident_information_list);
         setAcciItems(res.data.accident_information_list);
       })
       .catch((err) => {
@@ -30,7 +41,7 @@ const InfoList = () => {
   }, [checked]);
 
   const createOnClick = () => {
-    window.location.href = "/create";
+    window.location.href = "/infolist/create";
   };
 
   return (
@@ -60,7 +71,7 @@ const InfoList = () => {
         {acciItems?.map((element) => {
           return (
             <Tips>
-              <TipsList title={element.title} data={element.content} hearts={element.like_count} />
+              <TipsList key={element.accident_information_id} {...element} />
             </Tips>
           );
         })}
