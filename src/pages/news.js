@@ -25,15 +25,7 @@ align-items:center;
 margin-bottom:60px;
 `;
 
-const Container = styled.a`
-width:1600px;
-height:400px;
-border: 1px solid rgba(0, 0, 0, 0.20);
-margin-top:60px;
-display:flex;
-`;
-
-const Container2 = styled.a`
+const Container = styled.div`
 width:83.5vw;
 height:400px;
 border: 1px solid rgba(0, 0, 0, 0.20);
@@ -54,7 +46,7 @@ flex-direction:column;
 margin-left:50px;
 margin-top:70px;
 height:250px;
-width:800px;
+width:50%;
 overflow-y:hidden;
 `;
 
@@ -94,7 +86,7 @@ function News() {
             <Header></Header>
             <MainText>안전 뉴스</MainText>
             <ContainerBox>
-                <Container href="">
+                <Container>
                     <Img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCZlf5lc5tX-0gY-y94pGS0mQdL-D0lCH2OQ&usqp=CAU"/>
                     <TextSection>
                         <Title>하하하하하하하하하하하하하하하하하하하</Title>
@@ -104,7 +96,7 @@ function News() {
                     </TextSection>
                     <YMD>2023-07-05</YMD>
                 </Container>
-                <Container2 href="">
+                <Container>
                     <Img src=""/>
                     <TextSection>
                         <Title>제목제목제목제목제목</Title>
@@ -115,7 +107,7 @@ function News() {
                         </Content>
                     </TextSection>
                     <YMD>2023-07-05</YMD>
-                </Container2>
+                </Container>
             </ContainerBox>
         </Body>
     )
