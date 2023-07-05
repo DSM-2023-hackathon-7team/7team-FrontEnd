@@ -7,6 +7,7 @@ overflow-x:hidden;
 `;
 
 const MainText = styled.div`
+height:70px;
 color: #000;
 font-size: 32px;
 font-family: Inter;

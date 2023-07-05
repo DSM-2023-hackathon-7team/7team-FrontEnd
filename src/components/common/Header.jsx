@@ -34,9 +34,9 @@ const Header = () => {
         <_RightWrapper>
           <SearchBar onChange={onChange} value={searchValue} />
           <_HeaderNav to="/quiz">안전 퀴즈</_HeaderNav>
-          <_HeaderNav>안전 사고</_HeaderNav>
-          <_HeaderNav>안전 뉴스</_HeaderNav>
-          <_HeaderNav>사고 게시판</_HeaderNav>
+          <_HeaderNav to="/infolist">안전 사고</_HeaderNav>
+          <_HeaderNav to="/news">안전 뉴스</_HeaderNav>
+          <_HeaderNav to="/bulletin">사고 게시판</_HeaderNav>
           {isLogin ? (
             <_ProfileWrapper>
               <_Image src={Profile} alt="profile" />

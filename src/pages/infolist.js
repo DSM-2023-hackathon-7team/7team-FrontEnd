@@ -37,6 +37,9 @@ const InfoList = () => {
         <Tips>
           <TipsList title="test" data="test" hearts="10" />
         </Tips>
+        <Tips>
+          <TipsList title="cho" data="Hello" hearts="30" />
+        </Tips>
       </Wrapper>
     </div>
   );
@@ -55,7 +58,7 @@ const Top = styled.div`
   display: inline-flex;
   gap: 600px;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 120px;
 `;
 
 const Buttons = styled.div`

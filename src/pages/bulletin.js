@@ -122,7 +122,6 @@ const ContainerBox = styled.div`
   flex-direction: column;
   margin-left: 160px;
   margin-bottom: 60px;
-  margin-top: -60px;
 `;
 
 const Img = styled.img`
