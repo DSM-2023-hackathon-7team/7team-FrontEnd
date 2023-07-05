@@ -25,9 +25,13 @@ const InfoList = () => {
       });
   };
 
-  useEffect(() => {loadTips();}, [])
+  useEffect(() => {
+    loadTips();
+  }, [checked]);
 
-  
+  const createOnClick = () => {
+    window.location.href = "/create";
+  };
 
   return (
     <div style={{ overflowX: "hidden" }}>
@@ -50,7 +54,7 @@ const InfoList = () => {
             >
               올린 날짜순
             </SQC>
-            <WriteButton>생성하기</WriteButton>
+            <WriteButton onClick={createOnClick}>생성하기</WriteButton>
           </Buttons>
         </Top>
         {acciItems?.map((element) => {
@@ -106,6 +110,7 @@ const Title = styled.h1`
 const WriteButton = styled.button`
   padding: 3px 63px;
   justify-content: center;
+  cursor: pointer;
   align-items: center;
   border-radius: 10px;
   background: #5aff9c;

@@ -5,12 +5,15 @@ import { FindImage } from "../assets";
 import TextField from "../components/common/TextField";
 import { useModal } from "../hooks/useModal";
 import QuestionModal from "../components/common/modal/QuestionModal";
+import { imageUpload } from "../apis/imageUpload";
+import { customToast } from "../utils/toast/toast";
+import { createAccident } from "../apis/createAccident";
 
 function Create() {
   const [information, setInformation] = useState({
     title: "",
-    contents: "",
-    imageUrl: "",
+    content: "",
+    image_url: "",
   });
   const [imageState, setImageState] = useState("");
   const ref = useRef(null);
@@ -30,35 +33,41 @@ function Create() {
     const formData = new FormData();
 
     if (fileList && fileList[0]) {
-      formData.append("file", fileList[0]);
-      // formdata로 바꾸는 api
-      /*uploadImage(formData)
-        .then(res => {
-          setImageState({ ...imageState, [name]: res.data.file_url });
-          setCreateGroup({ ...createGroup, [name]: res.data.file_url });
+      formData.append("image", fileList[0]);
+      imageUpload(formData)
+        .then(({ data }) => {
+          setImageState(data.image_url);
+          setInformation({ ...information, [name]: data.image_url });
         })
-        .catch(err => {
-          customToast('이미지 업로드에 실패했습니다.', 'error');
+        .catch((err) => {
+          customToast("이미지 업로드에 실패했습니다.", "error");
           console.error(err);
-        });*/
+        });
     }
   };
 
-  const ShowImage = (image, height, imageValue) =>
-    useMemo(() => {
-      if (!imageValue) {
-        return (
-          <>
-            <img src={FindImage} alt="FindImage" />
-            <_Text>이미지를 선택하세요</_Text>
-          </>
-        );
-      }
-      return <_Image src={imageValue} height={height} alt={image} />;
-    }, [imageValue]);
+  const showImage = useMemo(() => {
+    if (!imageState) {
+      return (
+        <>
+          <img src={FindImage} alt="FindImage" />
+          <_Text>이미지를 선택하세요</_Text>
+        </>
+      );
+    }
+    return <_Image src={imageState} height={200} alt="" />;
+  }, [imageState]);
 
   const onClick = () => {
-    openModal();
+    createAccident(information)
+      .then((res) => {
+        console.log(res);
+        openModal();
+      })
+      .catch((err) => {
+        console.error(err);
+        customToast("개발자 에러", "error");
+      });
   };
 
   return (
@@ -77,8 +86,8 @@ function Create() {
             text="제목"
           />
           <TextInput
-            name="contents"
-            value={information.contents}
+            name="content"
+            value={information.content}
             onChange={onChange}
             placeholder="값을 입력해주세요"
           />
@@ -86,17 +95,13 @@ function Create() {
             height={200}
             onClick={() => ref.current?.click()}
           >
-            {ShowImage(
-              information.imageUrl,
-              200,
-              imageState.groupBackgroundImageUrl
-            )}
+            {showImage}
             <_FileSelector
               ref={ref}
               type="file"
               accept="image/*"
               onChange={imageOnChange}
-              name="groupBackgroundImageUrl"
+              name="image_url"
             />
           </_SelectImageWrapper>
           <EndButton onClick={onClick}>생성하기</EndButton>
@@ -123,6 +128,7 @@ const CreateTitle = styled.h1`
   color: #000;
   margin-top: 80px;
   margin-left: -900px;
+  margin-bottom: 50px;
   font-size: 32px;
   font-family: Inter;
   font-style: normal;
