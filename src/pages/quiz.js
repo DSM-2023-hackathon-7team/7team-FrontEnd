@@ -73,6 +73,7 @@ const LinkSpanGray = styled.span`
   font-style: normal;
   font-weight: 400;
   line-height: 32px;
+  opacity:0.7;
 `;
 
 const LinkSpanBlack = styled(Link)`
