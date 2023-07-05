@@ -19,7 +19,7 @@ export const Router = () => {
         {/* <Route path="/" element={<>Test</>} /> 이런 형식으로 페이지 추가*/}
         <Route path="/" element={<Main />} />
         <Route path="/infolist/create" element={<Create />} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/infolist/:id" element={<Detail />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/rank" element={<Rank />} />
         <Route path="/quizgame" element={<Quizgame />} />
