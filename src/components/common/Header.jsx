@@ -9,13 +9,8 @@ import { customToast } from "../../utils/toast/toast";
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
   const [name, setName] = useState("");
   const { modal, openModal } = useModal("Auth");
-
-  const onChange = (e) => {
-    setSearchValue(e.target.value);
-  };
 
   useEffect(() => {
     const accessToken = localStorage.getItem("access_token");
