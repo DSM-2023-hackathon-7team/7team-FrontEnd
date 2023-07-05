@@ -2,6 +2,76 @@ import React from "react";
 import styled from "styled-components";
 import Header from "../components/common/Header";
 
+function Bulletin() {
+    return (
+        <Body>
+            <Header></Header>
+            <TopBox>
+                <MainText>최근 사고들</MainText>
+                <a href="">
+                <AddBtn>
+                    게시글 작성하기
+                </AddBtn>
+                </a>
+            </TopBox>
+            <ContainerBox>
+            
+                <Container href="">
+                    <Img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCZlf5lc5tX-0gY-y94pGS0mQdL-D0lCH2OQ&usqp=CAU"/>
+                    <TextSection>
+                        <Title>대전 유성사거리 차사고</Title>
+                        <Content>
+                        대전 유성 사거리에서 어제 차 사고가 일어났습니다.<br/>어쩌고 저쩌고 어쩌고 저쩌고 어쩌고 저쩌고 어쩌고 저쩌고 어쩌고 저쩌고afsd<br/>해서 보완이 필요한 것 같습니다.
+                        </Content>
+                    </TextSection>
+                    <Information>
+                        <span>댓글수 : 321</span>
+                        <span>조회수 : 123</span>
+                        <span>2023-07-05</span>
+                    </Information>
+                </Container>
+
+                <Container href="">
+                    <Img src=""/>
+                    <TextSection>
+                        <Title>제목제목제목제목제목</Title>
+                        <Content>
+                            대전 유성 사거리에서 어제 차 사고가 일어났습니다.
+                            어쩌고 저쩌고  어쩌고 저쩌고 어쩌고 저쩌고 어쩌고 저쩌고 
+                            어쩌고 저쩌고 해서 보완이 필요한 것 같습니다.
+                        </Content>
+                    </TextSection>
+                    <Information>
+                        <span>댓글수 : 321</span>
+                        <span>조회수 : 123</span>
+                        <span>2023-07-05</span>
+                    </Information>
+                </Container>
+
+                <Container href="">
+                    <Img src=""/>
+                    <TextSection>
+                        <Title>제목제목제목제목제목</Title>
+                        <Content>
+                            대전 유성 사거리에서 어제 차 사고가 일어났습니다.
+                            어쩌고 저쩌고  어쩌고 저쩌고 어쩌고 저쩌고 어쩌고 저쩌고 
+                            어쩌고 저쩌고 해서 보완이 필요한 것 같습니다.
+                        </Content>
+                    </TextSection>
+                    <Information>
+                        <span>댓글수 : 321</span>
+                        <span>조회수 : 123</span>
+                        <span>2023-07-05</span>
+                    </Information>
+                </Container>
+                
+            </ContainerBox>
+        </Body>
+    )
+}
+
+export default Bulletin;
+
 const Body = styled.div`
 overflow-x:hidden;
 display:flex;
@@ -32,9 +102,7 @@ border-radius: 10px;
 background: #5AFF9C;
 margin-top:130px;
 margin-right:370px;
-`;
-
-const AddBtnText = styled.div`
+cursor: pointer;
 color: #FFF;
 font-size: 20px;
 font-family: Noto Sans;
@@ -56,13 +124,15 @@ display:flex;
 flex-direction:column;
 margin-left:160px;
 margin-bottom:60px;
-margin-top:-60px;
+:first-child {
+    margin-top:0;
+}
 `;
 
 const Img = styled.img`
 width:250px;
 height:250px;
-margin-top:75px;
+margin-top:75px !important;
 margin-left:50px;
 `;
 
@@ -110,71 +180,3 @@ flex-direction:column;
 justify-content:space-between;
 height:120px;
 `;
-
-function Bulletin() {
-    return (
-        <Body>
-            <Header></Header>
-            <TopBox>
-                <MainText>최근 사고들</MainText>
-                <AddBtn>
-                    <AddBtnText>
-                        게시글 작성하기
-                    </AddBtnText>
-                </AddBtn>
-            </TopBox>
-            <ContainerBox>
-            
-                <Container href="">
-                    <Img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCZlf5lc5tX-0gY-y94pGS0mQdL-D0lCH2OQ&usqp=CAU"/>
-                    <TextSection>
-                        <Title>하하하하하하하하하하하하하하하하하하하</Title>
-                        <Content>
-                            대전 유성 사거리에서 어제 차 사고가 일어났습니다.대전 유성 사거리에서 어제 차 사고가 일어났습니다.
-                        </Content>
-                    </TextSection>
-                    <Information>
-                        <span>댓글수 : 321</span>
-                        <span>조회수 : 123</span>
-                        <span>2023-07-05</span>
-                    </Information>
-                </Container>
-                <Container href="">
-                    <Img src=""/>
-                    <TextSection>
-                        <Title>제목제목제목제목제목</Title>
-                        <Content>
-                            대전 유성 사거리에서 어제 차 사고가 일어났습니다.
-                            어쩌고 저쩌고  어쩌고 저쩌고 어쩌고 저쩌고 어쩌고 저쩌고 
-                            어쩌고 저쩌고 해서 보완이 필요한 것 같습니다.
-                        </Content>
-                    </TextSection>
-                    <Information>
-                        <span>댓글수 : 321</span>
-                        <span>조회수 : 123</span>
-                        <span>2023-07-05</span>
-                    </Information>
-                </Container>
-
-                <Container href="">
-                    <Img src=""/>
-                    <TextSection>
-                        <Title>제목제목제목제목제목</Title>
-                        <Content>
-                            대전 유성 사거리에서 어제 차 사고가 일어났습니다.
-                            어쩌고 저쩌고  어쩌고 저쩌고 어쩌고 저쩌고 어쩌고 저쩌고 
-                            어쩌고 저쩌고 해서 보완이 필요한 것 같습니다.
-                        </Content>
-                    </TextSection>
-                    <Information>
-                        <span>댓글수 : 321</span>
-                        <span>조회수 : 123</span>
-                        <span>2023-07-05</span>
-                    </Information>
-                </Container>
-            </ContainerBox>
-        </Body>
-    )
-}
-
-export default Bulletin;
