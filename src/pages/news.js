@@ -21,12 +21,20 @@ margin-left:370px;
 const ContainerBox = styled.div`
 display:flex;
 flex-direction:column;
-margin-left:160px;
+align-items:center;
 margin-bottom:60px;
 `;
 
 const Container = styled.a`
 width:1600px;
+height:400px;
+border: 1px solid rgba(0, 0, 0, 0.20);
+margin-top:60px;
+display:flex;
+`;
+
+const Container2 = styled.a`
+width:83.5vw;
 height:400px;
 border: 1px solid rgba(0, 0, 0, 0.20);
 margin-top:60px;
@@ -96,7 +104,7 @@ function News() {
                     </TextSection>
                     <YMD>2023-07-05</YMD>
                 </Container>
-                <Container href="">
+                <Container2 href="">
                     <Img src=""/>
                     <TextSection>
                         <Title>제목제목제목제목제목</Title>
@@ -107,7 +115,7 @@ function News() {
                         </Content>
                     </TextSection>
                     <YMD>2023-07-05</YMD>
-                </Container>
+                </Container2>
             </ContainerBox>
         </Body>
     )
