@@ -13,11 +13,6 @@ const News = () => {
   const navigate = useNavigate();
 
   const onClick = (idx) => {
-    localStorage.setItem("title", newsItems[idx].title);
-    localStorage.setItem("describe", newsItems[idx].describe);
-    localStorage.setItem("date", newsItems[idx].date);
-    localStorage.setItem("imageUrl", newsItems[idx].imageUrl);
-
     navigate(`/news/${idx}`);
   };
 
@@ -65,7 +60,7 @@ const News = () => {
       <ContainerBox>
         {newsItems?.map((element, idx) => {
           return (
-            <Container onClick={() => onClick(idx)} key={element.id}>
+            <Container onClick={() => onClick(element.id)} key={element.id}>
               <Img src={element.imageUrl} />
               <TextSection>
                 <Title>{element.title}</Title>

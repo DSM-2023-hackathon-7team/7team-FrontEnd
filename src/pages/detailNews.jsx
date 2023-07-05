@@ -1,30 +1,48 @@
 import { styled } from "styled-components";
 import Header from "../components/common/Header";
 import { convertDateFormat } from "../utils/function/date";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getNewsPost } from "../apis/getNewsPost";
+import { customToast } from "../utils/toast/toast";
 
 const DetailNews = () => {
+  const [information, setInformation] = useState({
+    date: "",
+    describe: "",
+    image_url: "",
+    title: "",
+  });
+  const params = useParams();
+
+  useEffect(() => {
+    const { id } = params;
+    getNewsPost(id)
+      .then(({ data }) => {
+        setInformation(data);
+      })
+      .catch((err) => {
+        console.error(err);
+        customToast("개발자 에러", "error");
+      });
+  }, []);
+
   return (
     <_Item>
       <Header />
       <_Wrapper>
-        <_Title>{localStorage.getItem("title")}</_Title>
-        <_Date>{convertDateFormat(localStorage.getItem("date"))}</_Date>
-        <_Image
-          src={localStorage.getItem("imageUrl")}
-          alt={localStorage.getItem("title")}
-        />
+        <_Title>{information.title}</_Title>
+        <_Date>{convertDateFormat(information.date)}</_Date>
+        <_Image src={information.image_url} alt={information.title} />
         <_ContentsWrapper>
-          {localStorage
-            .getItem("describe")
-            .split("\n")
-            .map((line, idx) => {
-              return (
-                <span key={idx}>
-                  {line}
-                  <br />
-                </span>
-              );
-            })}
+          {information.describe.split("\n").map((line, idx) => {
+            return (
+              <span key={idx}>
+                {line}
+                <br />
+              </span>
+            );
+          })}
         </_ContentsWrapper>
       </_Wrapper>
     </_Item>
@@ -38,7 +56,7 @@ const _Item = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 const _Wrapper = styled.section`
   padding: 120px 460px;
