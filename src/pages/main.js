@@ -11,7 +11,7 @@ function Main() {
         <Text>
           안전 사고 정보,
           <br />
-          <Green>SIS에서</Green> 확인하세요
+          <Green>SUIZ에서</Green> 확인하세요
         </Text>
         <img src="/images/Person.svg" alt="introduce" />
       </Container>
