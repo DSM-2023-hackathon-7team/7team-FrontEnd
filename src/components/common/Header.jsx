@@ -79,6 +79,11 @@ const _HeaderNav = styled(Link)`
   display: flex;
   cursor: pointer;
   align-items: center;
+  opacity: 50%;
+  transition:0.3s;
+  &:hover {
+    opacity:100%;
+  }
 `;
 
 const _LoginButton = styled.button`
