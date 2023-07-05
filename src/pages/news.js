@@ -65,7 +65,7 @@ const News = () => {
       <ContainerBox>
         {newsItems?.map((element, idx) => {
           return (
-            <Container onClick={() => onClick(idx)} key={idx}>
+            <Container onClick={() => onClick(idx)} key={element.id}>
               <Img src={element.imageUrl} />
               <TextSection>
                 <Title>{element.title}</Title>
