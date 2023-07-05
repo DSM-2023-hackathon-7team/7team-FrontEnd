@@ -132,21 +132,20 @@ const Img = styled.img`
 `;
 
 const TextSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-left: 50px;
-  margin-top: 120px;
-  justify-content: space-between;
-  height: 210px;
-  width: 800px;
-  overflow-y: hidden;
+  display:flex;
+  flex-direction:column;
+  margin-left:50px;
+  margin-top:70px;
+    height:250px;
+  width:800px;
+  overflow-y:hidden;
 `;
 
 const Title = styled.div`
   color: #000;
   font-size: 48px;
   font-family: Inter;
-  font-style: normal;
+  ont-style: normal;
   font-weight: 400;
   line-height: 50px;
 `;
@@ -158,7 +157,7 @@ const Content = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 32px;
-  margin-top: 31px;
+  margin-top:20px;
 `;
 
 const Information = styled.div`

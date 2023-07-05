@@ -44,9 +44,8 @@ const TextSection = styled.div`
 display:flex;
 flex-direction:column;
 margin-left:50px;
-margin-top:120px;
-justify-content:space-between;
-height:210px;
+margin-top:70px;
+height:250px;
 width:800px;
 overflow-y:hidden;
 `;
@@ -67,7 +66,7 @@ font-family: Inter;
 font-style: normal;
 font-weight: 400;
 line-height: 32px;
-margin-top:31px;
+margin-top:20px;
 `;
 
 const YMD = styled.div`
@@ -92,7 +91,7 @@ function News() {
                     <TextSection>
                         <Title>하하하하하하하하하하하하하하하하하하하</Title>
                         <Content>
-                            대전 유성 사거리에서 어제 차 사고가 일어났습니다.대전 유성 사거리에서 어제 차 사고가 일어났습니다.
+                            대전 유성 사거리에서 어제 차 사고가 일어났습니다.대전 유성 사거리에서 어제 차 사고가 일어났습니다.대전 유성 사거리에서 어제 차 사고가 일어났습니다.대전 유성 사거리에서 어제 차 사고가 일어났습니다.대전 유성 사거리에서 어제 차 사고가 일어났습니다.대전 유성 사거리에서 어제 차 사고가 일어났습니다.
                         </Content>
                     </TextSection>
                     <YMD>2023-07-05</YMD>
