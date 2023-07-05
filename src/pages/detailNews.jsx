@@ -28,6 +28,7 @@ const DetailNews = () => {
   }, []);
 
   return (
+    <Body>
     <_Item>
       <Header />
       <_Wrapper>
@@ -46,10 +47,15 @@ const DetailNews = () => {
         </_ContentsWrapper>
       </_Wrapper>
     </_Item>
+    </Body>
   );
 };
 
 export default DetailNews;
+
+const Body = styled.div`
+  overflow-x:hidden;
+`;
 
 const _Item = styled.div`
   width: 100vw;
