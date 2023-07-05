@@ -7,7 +7,7 @@ const Quiz = () => {
   return (
     <Body>
       <Header />
-      <Img src="/images/quizimg.svg"></Img>
+      <Img src="/images/logo2.png"></Img>
       <MainText>안전 퀴즈를 풀어보아요!</MainText>
       <QuizBtn>퀴즈 도전하기</QuizBtn>
       <LinkDiv>
