@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from "styled-components";
 import Header from "../components/common/Header";
+import { Link } from "react-router-dom";
 
 const Quiz = () => {
   return (
@@ -11,7 +12,7 @@ const Quiz = () => {
       <QuizBtn>퀴즈 도전하기</QuizBtn>
       <LinkDiv>
         <LinkSpanGray>순위가 궁금하세요?</LinkSpanGray>
-        <LinkSpanBlack href="">&nbsp;순위 확인</LinkSpanBlack>
+        <LinkSpanBlack to="/rank">&nbsp;순위 확인</LinkSpanBlack>
       </LinkDiv>
     </Body>
   );
@@ -73,7 +74,7 @@ const LinkSpanGray = styled.span`
   line-height: 32px;
 `;
 
-const LinkSpanBlack = styled.a`
+const LinkSpanBlack = styled(Link)`
   color: #000000;
   font-size: 24px;
   font-family: Inter;

@@ -71,6 +71,17 @@ const popIn = keyframes`
   }
 `;
 
+const slideIn = keyframes`
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
+
 const transitions = {
   fadeIn,
   fadeOut,
@@ -79,6 +90,7 @@ const transitions = {
   popInFromBottom,
   popOutToBottom,
   popIn,
+  slideIn
 };
 
 export default transitions;

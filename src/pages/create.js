@@ -59,7 +59,7 @@ function Create() {
   };
 
   return (
-    <>
+    <Body>
       <Header />
       <Wrapper>
         <CreateTitle>안전 사고 꿀팁 생성</CreateTitle>
@@ -97,11 +97,15 @@ function Create() {
           <EndButton onClick={onClick}>생성하기</EndButton>
         </form>
       </Wrapper>
-    </>
+    </Body>
   );
 }
 
 export default Create;
+
+const Body = styled.div`
+  overflow-x:hidden;
+`;
 
 const Wrapper = styled.div`
   display: flex;
