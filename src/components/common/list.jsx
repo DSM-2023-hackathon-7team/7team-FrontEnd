@@ -2,14 +2,14 @@ import styled from "styled-components";
 import { Profile } from "../../assets";
 import { Heart } from "../../assets/image/svgs/Heart";
 
-const TipsList = ({ hearts, title, data }) => {
+const TipsList = ({ hearts, title, content, image_url }) => {
   return (
     <_Wrapper>
-      <_Image src={Profile} alt="post picture" />
+      <_Image src={image_url} alt="post picture" />
       <_SmallWrapper>
         <_Title>{title}</_Title>
         <_Items>
-          <span>{data}</span>
+          <span>{content}</span>
           <_HeartWrapper>
             <Heart />
             <span>{hearts}</span>
