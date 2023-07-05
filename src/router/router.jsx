@@ -9,6 +9,7 @@ import Bulletin from "../pages/bulletin";
 import News from "../pages/news";
 import BulletinCreate from "../pages/bulletinCreate";
 import BulletinDetail from "../pages/bulletinDetail";
+import InfoList from "../pages/infolist";
 
 export const Router = () => {
   return (
@@ -25,6 +26,7 @@ export const Router = () => {
         <Route path="/news" element={<News />} />
         <Route path="/bulletinCreate" element={<BulletinCreate />} />
         <Route path="/BulletinDetail" element={<BulletinDetail />} />
+        <Route path="/InfoList" element={<InfoList />} />
       </Routes>
     </BrowserRouter>
   );
