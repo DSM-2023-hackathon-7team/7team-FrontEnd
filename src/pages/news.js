@@ -58,10 +58,10 @@ const News = () => {
       <Header />
       <MainText>안전 뉴스</MainText>
       <ContainerBox>
-        {newsItems?.map((element, idx) => {
+        {newsItems?.map((element) => {
           return (
             <Container onClick={() => onClick(element.id)} key={element.id}>
-              <Img src={element.imageUrl} />
+              <Img src={element.image_url} alt={element.title} />
               <TextSection>
                 <Title>{element.title}</Title>
                 <Content>{element.describe}</Content>
