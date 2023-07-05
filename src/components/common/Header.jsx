@@ -17,12 +17,14 @@ const Header = () => {
   };
 
   useEffect(() => {
-    const accessToken = localStorage.getItem("accessToken");
+    const accessToken = localStorage.getItem("access_token");
 
     setIsLogin(accessToken ? true : false);
 
     if (isLogin) {
       // 이름 요청
+
+      setName("개발자");
     }
   }, []);
 
@@ -30,7 +32,9 @@ const Header = () => {
     <>
       {modal.isOpen && <LoginModal />}
       <_Wrapper>
-        <Link to="/"><img src="/images/logo2.png" style={{width:"70px"}}/></Link>
+        <Link to="/">
+          <img src="/images/logo2.png" style={{ width: "70px" }} />
+        </Link>
         <_RightWrapper>
           <SearchBar onChange={onChange} value={searchValue} />
           <_HeaderNav to="/quiz">안전 퀴즈</_HeaderNav>
@@ -40,7 +44,7 @@ const Header = () => {
           {isLogin ? (
             <_ProfileWrapper>
               <_Image src={Profile} alt="profile" />
-              <_Name>Test</_Name>
+              <_Name>{name}</_Name>
             </_ProfileWrapper>
           ) : (
             <_LoginButton onClick={openModal}>로그인</_LoginButton>
@@ -54,7 +58,7 @@ const Header = () => {
 export default Header;
 
 const _Wrapper = styled.header`
-  box-shadow:0px 2px 3px 0px rgba(0,0,0,0.25);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
   width: 100vw;
   height: 80px;
   display: flex;
@@ -80,9 +84,9 @@ const _HeaderNav = styled(Link)`
   cursor: pointer;
   align-items: center;
   opacity: 50%;
-  transition:0.3s;
+  transition: 0.3s;
   &:hover {
-    opacity:100%;
+    opacity: 100%;
   }
 `;
 

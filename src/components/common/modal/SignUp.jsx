@@ -7,7 +7,7 @@ import { SignUpApi } from "../../../apis/SignUp";
 
 const SignUp = () => {
   const [information, setInformation] = useState({
-    email: "",
+    account_id: "",
     name: "",
     password: "",
   });
@@ -23,7 +23,7 @@ const SignUp = () => {
       "([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*])"
     );
 
-    if (!regex.test(information.email)) {
+    if (!regex.test(information.account_id)) {
       customToast("이메일 형식이 올바르지 않습니다.", "error");
       return;
     }
@@ -59,9 +59,9 @@ const SignUp = () => {
       <TextField
         width={400}
         placeholder="이메일을 입력해주세요."
-        name="email"
+        name="account_id"
         onChange={onChange}
-        value={information.email}
+        value={information.account_id}
         text="이메일"
       />
       <TextField

@@ -6,7 +6,7 @@ import { customToast } from "../../../utils/toast/toast";
 
 const Login = ({ setIsSignUp }) => {
   const [information, setInformation] = useState({
-    email: "",
+    account_id: "",
     password: "",
   });
 
@@ -24,6 +24,9 @@ const Login = ({ setIsSignUp }) => {
     SignIn(information)
       .then((res) => {
         console.log(res);
+        localStorage.setItem("access_token", res.data.access_token);
+        localStorage.setItem("refresh_token", res.data.refresh_token);
+        window.location.reload();
       })
       .catch((err) => {
         console.error(err);
@@ -37,9 +40,9 @@ const Login = ({ setIsSignUp }) => {
       <TextField
         width={400}
         placeholder="이메일을 입력해주세요."
-        value={information.email}
+        value={information.account_id}
         onChange={onChange}
-        name="email"
+        name="account_id"
         text="이메일"
       />
       <TextField
