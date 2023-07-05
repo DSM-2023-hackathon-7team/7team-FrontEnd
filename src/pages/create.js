@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Header from "../components/common/Header";
 import { FindImage } from "../assets";
 import TextField from "../components/common/TextField";
+import { useModal } from "../hooks/useModal";
+import QuestionModal from "../components/common/modal/QuestionModal";
 
 function Create() {
   const [information, setInformation] = useState({
@@ -12,6 +14,7 @@ function Create() {
   });
   const [imageState, setImageState] = useState("");
   const ref = useRef(null);
+  const { modal, openModal } = useModal("Question");
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -55,21 +58,23 @@ function Create() {
     }, [imageValue]);
 
   const onClick = () => {
-    //게시물 생성 api
+    openModal();
   };
 
   return (
     <Body>
+      {modal.isOpen && <QuestionModal />}
       <Header />
       <Wrapper>
         <CreateTitle>안전 사고 꿀팁 생성</CreateTitle>
-        <form>
+        <div>
           <TextField
             width={100}
             name="title"
             placeholder="제목을 입력하세요."
             value={information.title}
             onChange={onChange}
+            text="제목"
           />
           <TextInput
             name="contents"
@@ -95,7 +100,7 @@ function Create() {
             />
           </_SelectImageWrapper>
           <EndButton onClick={onClick}>생성하기</EndButton>
-        </form>
+        </div>
       </Wrapper>
     </Body>
   );
@@ -104,7 +109,7 @@ function Create() {
 export default Create;
 
 const Body = styled.div`
-  overflow-x:hidden;
+  overflow-x: hidden;
 `;
 
 const Wrapper = styled.div`
