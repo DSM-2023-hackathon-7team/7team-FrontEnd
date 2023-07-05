@@ -5,6 +5,7 @@ import { useModal } from "../../../hooks/useModal";
 const CheckAnswer = () => {
   const { closeModal } = useModal("Answer");
   const [answer, setAnswer] = useState(false);
+  const [last, setLast] = useState(true); // 임의 변수(나중에는 리스트 길이로 할 예정)
 
   const onClick = () => {
     closeModal();
@@ -17,7 +18,12 @@ const CheckAnswer = () => {
 
   return (
     <_Wrapper>
-      {answer ? (
+      {last ? (
+        <>
+          <_Text>총 5문제 중 3문제 맞추셨습니다.</_Text>
+          <_Text>정답률 : 60%</_Text>
+        </>
+      ) : answer ? (
         <>
           <_Title>
             <_Stroke answer={answer}>정답</_Stroke>입니다.
@@ -101,4 +107,11 @@ const _Button = styled.button`
   line-height: 39px;
   border-radius: 10px;
   background-color: #5aff9c;
+`;
+
+const _Text = styled.span`
+  font-size: 24px;
+  color: black;
+  font-weight: 600;
+  line-height: 32px;
 `;
