@@ -56,8 +56,8 @@ const News = () => {
   return (
     <Body>
       <Header />
-      <MainText>안전 뉴스</MainText>
       <ContainerBox>
+        <MainText>안전 뉴스</MainText>
         {newsItems?.map((element) => {
           return (
             <Container onClick={() => onClick(element.id)} key={element.id}>
@@ -91,7 +91,7 @@ const MainText = styled.div`
   font-weight: 700;
   line-height: 32px;
   margin-top: 130px;
-  margin-left: 370px;
+  width: 1300px;
 `;
 
 const ContainerBox = styled.div`
@@ -102,11 +102,14 @@ const ContainerBox = styled.div`
 `;
 
 const Container = styled.div`
-  width: 1600px;
+  width: 1300px;
   height: 400px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   margin-top: 60px;
+  padding: 50px 75px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   &:hover {
     cursor: pointer;
   }
@@ -123,36 +126,32 @@ const Container2 = styled.a`
 const Img = styled.img`
   width: 250px;
   height: 250px;
-  margin-top: 75px;
-  margin-left: 50px;
 `;
 
 const TextSection = styled.div`
+  width: 50%;
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
-  margin-top: 70px;
   height: 250px;
-  width: 800px;
-  overflow-y: hidden;
+  justify-content: space-around;
 `;
 
 const Title = styled.div`
   color: #000;
-  font-size: 48px;
-  font-family: Inter;
+  font-size: 32px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 50px;
 `;
 
 const Content = styled.div`
+  width: 100%;
   color: #000;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
-  line-height: 32px;
-  margin-top: 20px;
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
 `;
 
@@ -162,6 +161,4 @@ const YMD = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 32px;
-  margin-left: 250px;
-  margin-top: 184px;
 `;

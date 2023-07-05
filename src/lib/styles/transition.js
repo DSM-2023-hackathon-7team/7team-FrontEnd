@@ -19,7 +19,7 @@ from {
 `;
 
 const sizeup = keyframes`
-0% {
+  0% {
     transform: scale(1);
   }
   100% {
@@ -90,7 +90,7 @@ const transitions = {
   popInFromBottom,
   popOutToBottom,
   popIn,
-  slideIn
+  slideIn,
 };
 
 export default transitions;
