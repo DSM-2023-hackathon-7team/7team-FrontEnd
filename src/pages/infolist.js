@@ -1,14 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Header from "../components/common/Header";
 import TipsList from "../components/common/list";
+import { getAccident } from "../apis/getAccident";
+import { customToast } from "../utils/toast/toast";
 
 const InfoList = () => {
+  const [pageNumber, setPageNumber] = useState(1);
   const [checked, setChecked] = useState("인기도");
+  const [AcciItems, setAcciItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const onClick = (initial) => {
     setChecked(initial);
   };
+
+  const loadTips = () => {
+    getAccident("", "LATEST")
+      .then((res) => {
+        const AccidentItems = res.data;
+        console.log(AccidentItems);
+        setAcciItems((prevAcciItems) => [...prevAcciItems, ...AccidentItems]);
+        setPageNumber((prevPageNumber) => prevPageNumber + 1);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        customToast("개발자 에러", "error");
+        setIsLoading(false);
+      });
+  };
+
+  useEffect(() => {loadTips();}, [])
+
+  
 
   return (
     <div style={{ overflowX: "hidden" }}>
@@ -34,12 +59,14 @@ const InfoList = () => {
             <WriteButton>생성하기</WriteButton>
           </Buttons>
         </Top>
-        <Tips>
-          <TipsList title="test" data="test" hearts="10" />
-        </Tips>
-        <Tips>
-          <TipsList title="cho" data="Hello" hearts="30" />
-        </Tips>
+        {AcciItems?.map((element) => {
+          return (
+            <Tips>
+              <TipsList title="test" data="test" hearts="10" />
+            </Tips>
+          );
+        })}
+        {isLoading && <span>Loading...</span>}
       </Wrapper>
     </div>
   );
