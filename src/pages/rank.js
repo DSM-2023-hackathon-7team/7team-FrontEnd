@@ -36,6 +36,7 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x:hidden;
 `;
 
 const Img = styled.img`

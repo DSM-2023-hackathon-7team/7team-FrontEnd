@@ -110,11 +110,11 @@ const AddBtnText = styled.div`
 `;
 
 const Container = styled.div`
-  width: 1600px;
-  height: 400px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  display: flex;
-  margin-top: 60px;
+  width:83.5vw;
+  height:400px;
+  border: 1px solid rgba(0, 0, 0, 0.20);
+  margin-top:60px;
+  display:flex;
 `;
 
 const ContainerBox = styled.div`
@@ -136,8 +136,8 @@ const TextSection = styled.div`
   flex-direction:column;
   margin-left:50px;
   margin-top:70px;
-    height:250px;
-  width:800px;
+  height:250px;
+  width:50%;
   overflow-y:hidden;
 `;
 
