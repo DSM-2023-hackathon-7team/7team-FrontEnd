@@ -19,7 +19,7 @@ function Main() {
         <Text2>
           <Green>안전 뉴스 기사</Green>들도 확인해보세요
           <br />
-          <Link to="">
+          <Link to="/news">
             <Btn>확인하기</Btn>
           </Link>
         </Text2>
