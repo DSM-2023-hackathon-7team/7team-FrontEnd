@@ -5,7 +5,6 @@ import { Profile } from "../../assets";
 import { useModal } from "../../hooks/useModal";
 import LoginModal from "./modal/LoginModal";
 import { getRank } from "../../apis/getRank";
-import { customToast } from "../../utils/toast/toast";
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -25,8 +24,7 @@ const Header = () => {
         })
         .catch((err) => {
           console.error(err);
-          setName("버그");
-          customToast("버그", "error");
+          setName("");
         });
     }
   }, []);
