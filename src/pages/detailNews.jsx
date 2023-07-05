@@ -38,7 +38,7 @@ const DetailNews = () => {
         <_ContentsWrapper>
           {information.describe.split("\n").map((line, idx) => {
             return (
-              <span key={idx}>
+              <span key={idx} style={{lineHeight:"40px"}}>
                 {line}
                 <br />
               </span>
