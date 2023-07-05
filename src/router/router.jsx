@@ -18,7 +18,7 @@ export const Router = () => {
       <Routes>
         {/* <Route path="/" element={<>Test</>} /> 이런 형식으로 페이지 추가*/}
         <Route path="/" element={<Main />} />
-        <Route path="/create" element={<Create />} />
+        <Route path="/infolist/create" element={<Create />} />
         <Route path="/detail" element={<Detail />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/rank" element={<Rank />} />
@@ -26,8 +26,8 @@ export const Router = () => {
         <Route path="/bulletin" element={<Bulletin />} />
         <Route path="/news" element={<News />} />
         <Route path="/news/:id" element={<DetailNews />} />
-        <Route path="/bulletinCreate" element={<BulletinCreate />} />
-        <Route path="/BulletinDetail" element={<BulletinDetail />} />
+        <Route path="/bulletin/create" element={<BulletinCreate />} />
+        <Route path="/bulletin/:id" element={<BulletinDetail />} />
         <Route path="/infolist" element={<InfoList />} />
         <Route path="*" element={<>Change Your WebSite Path</>} />
       </Routes>
