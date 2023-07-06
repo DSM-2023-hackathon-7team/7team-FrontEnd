@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getDetailAccident = async (id) => {
   const response = await axios.get(
-    `https://f130-119-203-74-86.ngrok-free.app/accidents/information/${id}`,
+    `http://3.36.125.144:8080/accidents/information/${id}`,
     {
       headers: {
         "Content-Type": `application/json`,

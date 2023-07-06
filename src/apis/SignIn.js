@@ -1,9 +1,6 @@
 import axios from "axios";
 
 export const SignIn = (data) => {
-  const response = axios.post(
-    "https://f130-119-203-74-86.ngrok-free.app/users/signin",
-    data
-  );
+  const response = axios.post("http://3.36.125.144:8080/users/signin", data);
   return response;
 };

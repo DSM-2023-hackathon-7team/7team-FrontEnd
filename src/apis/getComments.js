@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getComments = async (id) => {
   const response = await axios.get(
-    `https://f130-119-203-74-86.ngrok-free.app/comments/accident/${id}`,
+    `http://3.36.125.144:8080/comments/accident/${id}`,
     {
       headers: {
         "Content-Type": `application/json`,

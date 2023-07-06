@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getQuiz = async () => {
   const response = await axios.get(
-    "https://f130-119-203-74-86.ngrok-free.app/quiz",
+    "http://3.36.125.144:8080/quiz",
     {
       headers: {
         "Content-Type": `application/json`,
