@@ -36,17 +36,17 @@ const Rank = () => {
         <Container>
           <MedalImg src="/images/1medal.svg" />
           <RankText>1위</RankText>
-          <ScoreText>홍길동 - 1500점</ScoreText>
+          <ScoreText>홍길동 - 65점</ScoreText>
         </Container>
         <Container>
           <MedalImg src="/images/2medal.svg" />
           <RankText>2위</RankText>
-          <ScoreText>우영우 - 1300점</ScoreText>
+          <ScoreText>우영우 - 51점</ScoreText>
         </Container>
         <Container>
           <MedalImg src="/images/3medal.svg" />
           <RankText>3위</RankText>
-          <ScoreText>구기준 - 1000점</ScoreText>
+          <ScoreText>구기준 - 47점</ScoreText>
         </Container>
       </ContainerBox>
     </Body>

@@ -25,7 +25,7 @@ const Question = () => {
   };
 
   const plusOnClick = () => {
-    if (number === 10) {
+    if (number === 20) {
       customToast("다시 시도해주세요", "error");
       return;
     }
@@ -71,7 +71,7 @@ const Question = () => {
         <span>정답: {gptDummyData[number - 1].answer}</span>
         <_SmallWrapper>
           <_PolygonLeft onClick={minusOnClick} />
-          <_Pages>{number} / 10</_Pages>
+          <_Pages>{number} / {gptDummyData.length}</_Pages>
           <_PolygonRight onClick={plusOnClick} />
         </_SmallWrapper>
       </_GptDataWrapper>
